@@ -1,0 +1,32 @@
+﻿@model EnterStatistics.ViewedModels.ViewedUser
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div>
+    UserName: @Model.Name; <br/>
+    Created: @Model.Created; <br/>
+    Email: @Model.Created; <br/> 
+    EnterStats: <br/>
+    <ol>
+    @{
+        foreach (var action in Model.Actions)
+        {
+            <li>
+                @action.Date;
+            </li>
+        }
+    }
+    </ol>
+
+</div>
+</body>
+</html>

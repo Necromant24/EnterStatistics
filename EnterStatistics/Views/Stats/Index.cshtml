@@ -1,0 +1,23 @@
+﻿@model List<User>
+
+@{
+    ViewBag.Title = "stats page";
+    Layout = "_Layout";
+}
+
+<h2>Stats</h2>
+
+Users:
+<ul>
+@{
+    foreach (var user in Model)
+    {
+        var url = "UserStats/" + @user.Id;
+        <li>
+            <a href="@url">
+                @user.Name
+            </a>
+        </li>
+    }
+}
+</ul>
