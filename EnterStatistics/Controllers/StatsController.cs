@@ -43,6 +43,19 @@ namespace EnterStatistics.Controllers
             List<Action> actions = db.Actions.Where(x => x.UserId == id).ToList();
             return View(new ViewedUser(user, actions));
         }
+
+        public JsonResult UserList()
+        {
+            return Json(db.Users.Select(x => x));
+        }
+        
+        
+        public JsonResult UserStatsInfo(int id)
+        {
+            User user = db.Users.Where(x => x.Id == id).First();
+            List<Action> actions = db.Actions.Where(x => x.UserId == id).ToList();
+            return Json(new ViewedUser(user,actions));
+        }
         
     }
 }
